@@ -30,5 +30,33 @@ namespace WpfApp1
             this.Visibility = Visibility.Hidden;
             mainWindow.Show();
         }
+
+        private void btnRegister_Click(object sender, RoutedEventArgs e)
+        {
+            if (tbxPassword.Password.ToString().Equals(tbxRePassword.Password.ToString()))
+            {
+                User user = new User(tbxUsername.Text.ToString(), tbxEmail.Text.ToString(), tbxPassword.Password.ToString());
+
+                using (AppDbContext context = new AppDbContext())
+                {
+                    try
+                    {
+                        context.Users.Add(user);
+                        context.SaveChanges();
+                        MessageBox.Show("Registration successful.");
+
+                        MainWindow mainWindow = new MainWindow();
+                        this.Visibility = Visibility.Hidden;
+                        mainWindow.Show();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+            else MessageBox.Show("Passwords don't match!");
+            
+        }
     }
 }

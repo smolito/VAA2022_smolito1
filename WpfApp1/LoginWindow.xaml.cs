@@ -30,5 +30,39 @@ namespace WpfApp1
             this.Visibility = Visibility.Hidden;
             mainWindow.Show();
         }
+
+        private void btnLogin_Click(object sender, RoutedEventArgs e)
+        {
+            string email = tbxEmail.Text;
+            string password = tbxPassword.Password.ToString();
+
+            using (AppDbContext context = new AppDbContext())
+            {
+                try
+                {
+                    User user = context.Users.Where(u => u.Email == email && u.Password == password).FirstOrDefault();
+                    if (user != null)
+                    {
+                        LoggedUser.Id = user.Id;
+                        LoggedUser.Username = user.Username;
+                        LoggedUser.Email = user.Email;
+                        LoggedUser.Password = user.Password;
+                        MessageBox.Show("logged in as: " + user.Username);
+
+                        MainWindow mainWindow = new MainWindow();
+                        this.Visibility = Visibility.Hidden;
+                        mainWindow.Show();
+
+                    } else
+                    {
+                        MessageBox.Show("wrong password or username");
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
+        }
     }
 }

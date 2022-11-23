@@ -23,6 +23,10 @@ namespace WpfApp1
         public MainWindow()
         {
             InitializeComponent();
+            if (LoggedUser.Username != null)
+            {
+                tbLoggedIn.Text = "logged in as: " + LoggedUser.Username;
+            }
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)

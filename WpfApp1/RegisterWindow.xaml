@@ -35,7 +35,7 @@
         <TextBlock Name="tbRePassword" Grid.Row="5" Grid.Column="0" HorizontalAlignment="Right">Re-enter password: </TextBlock>
         <PasswordBox Name="tbxRePassword" Grid.Row="5" Grid.Column="1"/>
 
-        <Button Name="btnRegister" Grid.Row="6" Grid.ColumnSpan="2" Content="Register"/>
+        <Button Name="btnRegister" Grid.Row="6" Grid.ColumnSpan="2" Content="Register" Click="btnRegister_Click"/>
         
     </Grid>
 </Window>

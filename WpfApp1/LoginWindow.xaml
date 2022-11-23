@@ -24,6 +24,6 @@
         <TextBlock Name="tbPassword" Grid.Row="4" HorizontalAlignment="Center">Password</TextBlock>
         <PasswordBox Name="tbxPassword" Grid.Row="5" HorizontalAlignment="Center"/>
 
-        <Button Name="btnLogin" Grid.Row="6" Content="Login"/>
+        <Button Name="btnLogin" Grid.Row="6" Content="Login" Click="btnLogin_Click"/>
     </Grid>
 </Window>
