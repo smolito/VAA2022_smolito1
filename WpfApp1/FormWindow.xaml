@@ -25,9 +25,9 @@
 
         <TextBlock Name="tbHeader" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center">Create Your Schedule</TextBlock>
         <Label Name="lblStart" Grid.Row="3" Grid.Column="0" Content="Starting at: " HorizontalAlignment="Right" />
-        <TextBox Name="tbxStart" Grid.Row="3" Grid.Column="1" />
+        <ComboBox Name="cbxStart" Grid.Row="3" Grid.Column="1" />
         <Label Name="lblEnd" Grid.Row="4" Grid.Column="0" Content="Ending at: " HorizontalAlignment="Right" />
-        <TextBox Name="tbxEnd" Grid.Row="4" Grid.Column="1" />
+        <ComboBox Name="cbxEnd" Grid.Row="4" Grid.Column="1" />
         <Calendar Name="clndCalendar" Grid.Row="5" Grid.ColumnSpan="2" IsTodayHighlighted="False" />
         <Button Name="btnSubmit" Grid.Row="6" Grid.ColumnSpan="2" Content="Create" />
     </Grid>
