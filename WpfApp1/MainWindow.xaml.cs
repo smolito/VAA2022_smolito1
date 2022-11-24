@@ -26,10 +26,12 @@ namespace WpfApp1
             if (LoggedUser.Username != null)
             {
                 tbLoggedIn.Text = "logged in as: " + LoggedUser.Username;
+                btnLogout.Visibility = Visibility.Visible;
             }
             else
             {
                 btnForm.Visibility = Visibility.Collapsed;
+                btnLogout.Visibility = Visibility.Collapsed;
             }
         }
 
@@ -61,6 +63,18 @@ namespace WpfApp1
 
             viewScheduleWindow.lblUserName.Content = viewScheduleWindow.lblUserName.Content.ToString() + viewScheduleWindow.searchUsername;
             viewScheduleWindow.Show();
+        }
+
+        private void btnLogout_Click(object sender, RoutedEventArgs e)
+        {
+            LoggedUser.Id = 0;
+            LoggedUser.Username = null;
+            LoggedUser.Password = null;
+            LoggedUser.Email = null;
+
+            MainWindow mainWindow = new MainWindow();
+            this.Visibility = Visibility.Hidden;
+            mainWindow.Show();
         }
     }
 }
