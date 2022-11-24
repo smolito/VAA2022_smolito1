@@ -27,6 +27,10 @@ namespace WpfApp1
             {
                 tbLoggedIn.Text = "logged in as: " + LoggedUser.Username;
             }
+            else
+            {
+                btnForm.Visibility = Visibility.Collapsed;
+            }
         }
 
         private void btnLogin_Click(object sender, RoutedEventArgs e)
@@ -52,9 +56,11 @@ namespace WpfApp1
 
         private void btnView_Click(object sender, RoutedEventArgs e)
         {
-            ViewWindow viewWindow = new ViewWindow();
-            this.Visibility= Visibility.Hidden;
-            viewWindow.Show();
+            ViewScheduleWindow viewScheduleWindow = new ViewScheduleWindow();
+            this.Visibility = Visibility.Hidden;
+
+            viewScheduleWindow.lblUserName.Content = viewScheduleWindow.lblUserName.Content.ToString() + this.tbSearchField.Text;
+            viewScheduleWindow.Show();
         }
     }
 }

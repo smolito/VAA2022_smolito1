@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.IdentityModel.Tokens;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,9 +15,6 @@ using System.Windows.Shapes;
 
 namespace WpfApp1
 {
-    /// <summary>
-    /// Interakční logika pro FormWindow.xaml
-    /// </summary>
     public partial class FormWindow : Window
     {
         public FormWindow()
@@ -87,6 +85,57 @@ namespace WpfApp1
             cbxEnd.Items.Add("21:00");
             cbxEnd.Items.Add("22:00");
             cbxEnd.Items.Add("23:00");
+        }
+
+        private void btnSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            string? date = clndCalendar.SelectedDate.ToString();
+            if (clndCalendar.SelectedDate.HasValue)
+            {
+                string[] onlyDate = date.Split(' ');
+                date = onlyDate[0];
+                //MessageBox.Show("calendar selected date: " + date);
+            } else
+            {
+                MessageBox.Show("choose date, please");
+            }
+
+            if (!(cbxStart.Text.IsNullOrEmpty() || cbxEnd.Text.IsNullOrEmpty()))
+            {
+                Schedule schedule = new Schedule(date, cbxStart.Text, cbxEnd.Text);
+                
+                using (AppDbContext context = new AppDbContext())
+                {
+                    try
+                    {
+                        Schedule checkExistingSchedule = context.Schedules.Where(sched => (sched.UserId == LoggedUser.Id) && (sched.Date == date)).FirstOrDefault();
+                        if(checkExistingSchedule == null)
+                        {
+                            //MessageBox.Show("checkExisting date: " + checkExistingSchedule.Date + "schedule being submitted: " + schedule.Date);
+                            context.Schedules.Add(schedule);
+                            context.SaveChanges();
+                            MessageBox.Show("schedule created");
+
+                            cbxStart.Text = null;
+                            cbxEnd.Text = null;
+                        } else
+                        {
+                            MessageBox.Show("you already have a planned schedule for this day");
+                        }
+
+                    } catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+
+            } else
+            {
+                MessageBox.Show("choose both starting and ending times, please");
+            }
+
+
+
         }
     }
 }

@@ -7,9 +7,13 @@
         mc:Ignorable="d"
         Title="LoginWindow" Height="450" Width="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
-            <RowDefinition Height="30px"/>
+            <RowDefinition Height="20px"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -17,13 +21,13 @@
             <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
         
-        <Button Name="btnMain" Grid.Row="0" Content="Main Page" Click="btnMain_Click" />
+        <Button Name="btnMain" Grid.Row="0" Grid.ColumnSpan="2" Content="Main Page" Click="btnMain_Click" />
 
-        <TextBlock Name="tbEmail" Grid.Row="2" HorizontalAlignment="Center">E-mail</TextBlock>
-        <TextBox Name="tbxEmail" Grid.Row="3" HorizontalAlignment="Center"/>
-        <TextBlock Name="tbPassword" Grid.Row="4" HorizontalAlignment="Center">Password</TextBlock>
-        <PasswordBox Name="tbxPassword" Grid.Row="5" HorizontalAlignment="Center"/>
+        <TextBlock Name="tbEmail" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right">E-mail: </TextBlock>
+        <TextBox Name="tbxEmail" Grid.Row="2" Grid.Column="1" />
+        <TextBlock Name="tbPassword" Grid.Row="3" Grid.Column="0" HorizontalAlignment="Right">Password: </TextBlock>
+        <PasswordBox Name="tbxPassword" Grid.Row="3" Grid.Column="1"/>
 
-        <Button Name="btnLogin" Grid.Row="6" Content="Login" Click="btnLogin_Click"/>
+        <Button Name="btnLogin" Grid.Row="6" Grid.ColumnSpan="2" Content="Login" Click="btnLogin_Click"/>
     </Grid>
 </Window>

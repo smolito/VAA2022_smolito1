@@ -29,6 +29,6 @@
         <Label Name="lblEnd" Grid.Row="4" Grid.Column="0" Content="Ending at: " HorizontalAlignment="Right" />
         <ComboBox Name="cbxEnd" Grid.Row="4" Grid.Column="1" />
         <Calendar Name="clndCalendar" Grid.Row="5" Grid.ColumnSpan="2" IsTodayHighlighted="False" />
-        <Button Name="btnSubmit" Grid.Row="6" Grid.ColumnSpan="2" Content="Create" />
+        <Button Name="btnSubmit" Grid.Row="6" Grid.ColumnSpan="2" Content="Create" Click="btnSubmit_Click" />
     </Grid>
 </Window>

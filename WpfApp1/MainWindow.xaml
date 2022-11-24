@@ -11,6 +11,8 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
             <RowDefinition Height="80px"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
@@ -18,9 +20,11 @@
         </Grid.RowDefinitions>
         
         <Button Name="btnForm" Grid.Row="0" Grid.Column="0" Content="Create a Schedule" Click="btnForm_Click"/>
-        <Button Name="btnView" Grid.Row="1" Grid.Column="0" Content="Overview" Click="btnView_Click"/>
-        <Button Name="btnLogin" Grid.Row="3" Grid.Column="0" Content="Login" Click="btnLogin_Click"/>
-        <Button Name="btnRegister" Grid.Row="4" Grid.Column="0" Content="Register" Click="btnRegister_Click"/>
-        <TextBlock Name="tbLoggedIn" Grid.Row="5" HorizontalAlignment="Center"/>
+        <Label Name="lblHeader" Grid.Row="1" Grid.ColumnSpan="2" Content="Search for a Schedule by Username:" HorizontalAlignment="Center"/>
+        <TextBox Name="tbSearchField" Grid.Row="2" Grid.ColumnSpan="2" HorizontalAlignment="Center" Width="800"/>
+        <Button Name="btnView" Grid.Row="3" Grid.Column="0" Content="Search" Click="btnView_Click"/>
+        <Button Name="btnLogin" Grid.Row="5" Grid.Column="0" Content="Login" Click="btnLogin_Click"/>
+        <Button Name="btnRegister" Grid.Row="6" Grid.Column="0" Content="Register" Click="btnRegister_Click"/>
+        <TextBlock Name="tbLoggedIn" Grid.Row="7" HorizontalAlignment="Center"/>
     </Grid>
 </Window>

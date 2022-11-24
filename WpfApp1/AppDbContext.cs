@@ -27,7 +27,7 @@ public partial class AppDbContext : DbContext
     {
         modelBuilder.Entity<Schedule>(entity =>
         {
-            entity.HasKey(e => e.Id).HasName("PK__schedule__3213E83F86B48C44");
+            entity.HasKey(e => e.Id).HasName("PK__schedule__3213E83F24D28F1F");
 
             entity.ToTable("schedules");
 
@@ -36,10 +36,6 @@ public partial class AppDbContext : DbContext
                 .HasMaxLength(255)
                 .IsUnicode(false)
                 .HasColumnName("date");
-            entity.Property(e => e.Streamer)
-                .HasMaxLength(100)
-                .IsUnicode(false)
-                .HasColumnName("streamer");
             entity.Property(e => e.TimeFrom)
                 .HasMaxLength(255)
                 .IsUnicode(false)

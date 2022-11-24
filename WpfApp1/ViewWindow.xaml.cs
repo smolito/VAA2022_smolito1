@@ -33,11 +33,7 @@ namespace WpfApp1
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            ViewScheduleWindow viewScheduleWindow = new ViewScheduleWindow();
-            this.Visibility = Visibility.Hidden;
-
-            viewScheduleWindow.lblUserName.Content = viewScheduleWindow.lblUserName.Content.ToString() + this.tbxUsername.Text;
-            viewScheduleWindow.Show();
+            
         }
     }
 }
