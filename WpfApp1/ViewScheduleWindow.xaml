@@ -20,5 +20,6 @@
         <Label Name="lblUserName" Grid.Row="2" Content="Showing schedule for: " HorizontalAlignment="Center" />
 
         <DataGrid Name="schedulesList" Grid.Row="3" />
+        <Button Name="btnDelete" Grid.Row="4" Content="DELETE" Click="btnDelete_Click" />
     </Grid>
 </Window>

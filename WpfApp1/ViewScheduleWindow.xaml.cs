@@ -26,6 +26,11 @@ namespace WpfApp1
             InitializeComponent();
             this.searchUsername = username;
 
+            if (LoggedUser.Username != this.searchUsername)
+            {
+                btnDelete.Visibility = Visibility.Collapsed;
+            }
+
             using (AppDbContext context = new AppDbContext())
             {
                 try
@@ -55,7 +60,7 @@ namespace WpfApp1
 
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
-            
+            //není součástí hodnocení
         }
     }
 }
