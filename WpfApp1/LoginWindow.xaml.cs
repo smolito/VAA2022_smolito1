@@ -47,7 +47,7 @@ namespace WpfApp1
                         LoggedUser.Username = user.Username;
                         LoggedUser.Email = user.Email;
                         LoggedUser.Password = user.Password;
-                        MessageBox.Show("logged in as: " + user.Username);
+                        //MessageBox.Show("logged in as: " + user.Username);
 
                         MainWindow mainWindow = new MainWindow();
                         this.Visibility = Visibility.Hidden;
@@ -55,7 +55,7 @@ namespace WpfApp1
 
                     } else
                     {
-                        MessageBox.Show("wrong password or username");
+                        MessageBox.Show("wrong password or email");
                     }
                 }
                 catch(Exception ex)
